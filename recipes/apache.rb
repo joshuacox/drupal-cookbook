@@ -1,6 +1,6 @@
 directory "/var/www" do
-  owner "vagrant"
-  group "vagrant"
+  owner "www-data"
+  group "www-data"
 end
 
 file "/var/www/index.html" do
@@ -22,8 +22,8 @@ web_app "localhost" do
   template "localhost.conf.erb"
 end
 
-node.default["apache"]["user"] = "vagrant"
-node.default["apache"]["group"] = "vagrant"
+node.default["apache"]["user"] = "www-data"
+node.default["apache"]["group"] = "www-data"
 
 modules = [
   "cgi",
