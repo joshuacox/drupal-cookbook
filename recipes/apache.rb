@@ -49,7 +49,7 @@ modules.each do |mod|
   end
 end
 
-template "/etc/apache2/conf.d/vdd_apache.conf" do
+template "/etc/apache2/conf-enabled/vdd_apache.conf" do
   source "vdd_apache.conf.erb"
   mode "0644"
   notifies :restart, "service[apache2]", :delayed
