@@ -17,8 +17,8 @@ if node["vdd"]["sites"]
     for i in (0..htdocs.length - 1)
       folder = folder + htdocs[i] + "/"
       directory folder do
-        owner "vagrant"
-        group "vagrant"
+        owner "www-data"
+        group "www-data"
         mode "0755"
         action :create
       end

@@ -13,7 +13,7 @@ package "phpmyadmin" do
 end
 
 directory "/var/lib/phpmyadmin/tmp" do
-  owner "vagrant"
+  owner "www-data"
   group "www-data"
   mode 00755
   action :create

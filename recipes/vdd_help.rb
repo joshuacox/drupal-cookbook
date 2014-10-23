@@ -1,7 +1,7 @@
 template "/var/www/index.html" do
   source "vdd_help.html.erb"
-  owner "vagrant"
-  group "vagrant"
+  owner "www-data"
+  group "www-data"
   mode 00644
   variables(
     :sites => node["vdd"]["sites"]
