@@ -1,34 +1,10 @@
-directory "/var/www" do
-  owner "www-data"
-  group "www-data"
-end
-
-directory "/var/lock/apache2" do
-  owner "www-data"
-  group "www-data"
-end
-
 file "/var/www/index.html" do
   action :delete
-end
-
-link "/home/vagrant/sites" do
-  to "/var/www"
-end
-
-# Add vagrant to www-data group
-group "www-data" do
-  action :modify
-  members "vagrant"
-  append true
 end
 
 web_app "localhost" do
   template "localhost.conf.erb"
 end
-
-node.default["apache"]["user"] = "www-data"
-node.default["apache"]["group"] = "www-data"
 
 modules = [
   "cgi",
