@@ -30,14 +30,14 @@ modules.each do |mod|
   end
 end
 
-if node['platform_family'] == 'debian'
-  template "/etc/apache2/conf-enabled/vdd_apache.conf" do
+if node['platform'] == 'ubuntu'
+  template "/etc/apache2/conf.d/vdd_apache.conf" do
     source "vdd_apache.conf.erb"
     mode "0644"
     notifies :restart, "service[apache2]", :delayed
   end
 else
-  template "/etc/apache2/conf.d/vdd_apache.conf" do
+  template "/etc/apache2/conf-enabled/vdd_apache.conf" do
     source "vdd_apache.conf.erb"
     mode "0644"
     notifies :restart, "service[apache2]", :delayed
